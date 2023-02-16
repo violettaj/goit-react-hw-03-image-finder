@@ -1,4 +1,6 @@
 import { RotatingLines } from 'react-loader-spinner';
+import PropTypes from 'prop-types';
+
 export const Loader = props => {
   let { isLoading } = props;
   if (isLoading) {
@@ -12,4 +14,8 @@ export const Loader = props => {
       />
     );
   }
+};
+
+Loader.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
 };

@@ -1,4 +1,5 @@
 import css from './Button.module.css';
+import PropTypes from 'prop-types';
 
 export const Button = ({ btnShow, handleMore }) => {
   return (
@@ -8,4 +9,9 @@ export const Button = ({ btnShow, handleMore }) => {
       </button>
     </div>
   );
+};
+
+Button.propTypes = {
+  btnShow: PropTypes.string.isRequired,
+  handleMore: PropTypes.func.isRequired,
 };

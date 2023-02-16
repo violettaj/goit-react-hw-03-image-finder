@@ -78,7 +78,7 @@ export class App extends Component {
     }
   }
 
-  handleshowModal = event => {
+  handleShowModal = event => {
     const largeImageURL = event.target.srcset;
     this.setState({
       showModal: true,
@@ -101,7 +101,7 @@ export class App extends Component {
         />
         <ImageGallery
           images={this.state.images}
-          handleshowModal={this.handleshowModal}
+          handleShowModal={this.handleShowModal}
         />
         <Loader isLoading={this.state.isLoading} />
         {this.state.images.length > 0 &&

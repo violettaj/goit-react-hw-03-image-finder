@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types';
+
 export const ImageGalleryItem = ({
   webformatURL,
   largeImageURL,
   id,
-  handleshowModal,
+  handleShowModal,
 }) => {
   return (
     <li>
@@ -12,8 +14,15 @@ export const ImageGalleryItem = ({
         srcSet={largeImageURL}
         alt=""
         key={id}
-        onClick={handleshowModal}
+        onClick={handleShowModal}
       />
     </li>
   );
+};
+
+ImageGalleryItem.propTypes = {
+  webformatURL: PropTypes.string.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  handleShowModal: PropTypes.func.isRequired,
 };

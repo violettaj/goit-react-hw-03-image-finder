@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './Searchbar.module.css';
 import { VscSearch } from 'react-icons/vsc';
+import PropTypes from 'prop-types';
 
 export const Searchbar = ({ onSubmit, handleChange }) => {
   return (
@@ -20,4 +21,9 @@ export const Searchbar = ({ onSubmit, handleChange }) => {
       </div>
     </form>
   );
+};
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };

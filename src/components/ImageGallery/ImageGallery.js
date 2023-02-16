@@ -1,7 +1,8 @@
 import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem.js';
 import css from './ImageGallery.module.css';
+import PropTypes from 'prop-types';
 
-export const ImageGallery = ({ images, handleshowModal }) => {
+export const ImageGallery = ({ images, handleShowModal }) => {
   return (
     <ul className={css.gallery}>
       {images &&
@@ -11,10 +12,15 @@ export const ImageGallery = ({ images, handleshowModal }) => {
               webformatURL={img.webformatURL}
               largeImageURL={img.largeImageURL}
               key={img.id}
-              handleshowModal={handleshowModal}
+              handleShowModal={handleShowModal}
             />
           );
         })}
     </ul>
   );
+};
+
+ImageGallery.propTypes = {
+  images: PropTypes.object.isRequired,
+  handleShowModal: PropTypes.func.isRequired,
 };
