@@ -26,29 +26,11 @@ export class App extends Component {
 
       const response = await fetchImages(topic, page, perPage);
 
-      this.setState({
-        images: response.hits,
-        error: null,
-        totalHits: response.totalHits,
-      });
-    } catch (error) {
-      this.setState({ error: error });
-      throw new Error(error);
-    } finally {
-      this.setState({ isLoading: false });
-    }
-  };
-  loadMore = async () => {
-    this.setState({ isLoading: true });
-    try {
-      const { topic, page, perPage } = this.state;
-
-      const response = await fetchImages(topic, page, perPage);
-
       this.setState(prevState => {
         return {
           images: [...prevState.images, ...response.hits],
           error: null,
+          totalHits: response.totalHits,
         };
       });
     } catch (error) {
@@ -74,7 +56,7 @@ export class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.page !== this.state.page) {
-      this.loadMore();
+      this.loadGallery();
     }
   }
 

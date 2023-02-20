@@ -21,6 +21,6 @@ export const ImageGallery = ({ images, handleShowModal }) => {
 };
 
 ImageGallery.propTypes = {
-  images: PropTypes.object.isRequired,
+  images: PropTypes.array.isRequired,
   handleShowModal: PropTypes.func.isRequired,
 };
