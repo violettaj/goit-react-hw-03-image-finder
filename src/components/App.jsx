@@ -43,11 +43,9 @@ export class App extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.loadGallery();
-  };
-  handleChange = e => {
-    const value = e.target.value;
-    this.setState({ topic: value });
+    const value = e.target.search.value;
+    console.log({ value });
+    this.setState({ images: [], page: 1, topic: value });
   };
 
   handleMore = () => {
@@ -55,7 +53,10 @@ export class App extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.page !== this.state.page) {
+    if (
+      prevState.page !== this.state.page ||
+      prevState.topic !== this.state.topic
+    ) {
       this.loadGallery();
     }
   }
@@ -77,10 +78,7 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <Searchbar
-          onSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-        />
+        <Searchbar onSubmit={this.handleSubmit} />
         <ImageGallery
           images={this.state.images}
           handleShowModal={this.handleShowModal}

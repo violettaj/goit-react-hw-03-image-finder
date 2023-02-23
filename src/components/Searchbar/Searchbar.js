@@ -3,19 +3,19 @@ import css from './Searchbar.module.css';
 import { VscSearch } from 'react-icons/vsc';
 import PropTypes from 'prop-types';
 
-export const Searchbar = ({ onSubmit, handleChange }) => {
+export const Searchbar = ({ onSubmit }) => {
   return (
     <form className={css.searchbar} onSubmit={onSubmit}>
       <div className={css.search}>
         <input
           className={css.input}
+          name="search"
           type="text"
           autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
-          onChange={handleChange}
         />
-        <button className={css.icon} type="button">
+        <button className={css.icon} type="submit">
           <VscSearch />
         </button>
       </div>
@@ -25,5 +25,4 @@ export const Searchbar = ({ onSubmit, handleChange }) => {
 
 Searchbar.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
 };
